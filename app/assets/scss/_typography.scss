@@ -1,0 +1,55 @@
+// ══════════════════════════════════════════════════════════
+// @font-face — self-hosted шрифты
+// ══════════════════════════════════════════════════════════
+
+// ALS Trigger Luzhniki — основной акцидентный шрифт
+@font-face {
+  font-family: "ALS Trigger Luzhniki";
+  font-display: swap;
+  font-weight: 900;
+  font-style: normal;
+  src: local("ALS Trigger Luzhniki Black"),
+    url("../fonts/ALSTriggerLuzhniki-Black.woff2") format("woff2"),
+    url("../fonts/ALSTriggerLuzhniki-Black.woff") format("woff");
+}
+
+@font-face {
+  font-family: "ALS Trigger Luzhniki";
+  font-display: swap;
+  font-weight: 900;
+  font-style: italic;
+  src: local("ALS Trigger Luzhniki Black Italic"),
+    url("../fonts/ALSTriggerLuzhniki-BlackItalic.woff2") format("woff2"),
+    url("../fonts/ALSTriggerLuzhniki-BlackItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "ALS Trigger Luzhniki";
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+  src: local("ALS Trigger Luzhniki Bold"),
+    url("../fonts/ALSTriggerLuzhniki-Bold.woff2") format("woff2"),
+    url("../fonts/ALSTriggerLuzhniki-Bold.woff") format("woff");
+}
+
+// ALS Pofo — вспомогательный / текстовый шрифт
+@font-face {
+  font-family: "ALS Pofo";
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+  src: local("ALS Pofo Bold"),
+    url("../fonts/ALSPofo-Bold.woff2") format("woff2"),
+    url("../fonts/ALSPofo-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "ALS Pofo";
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+  src: local("ALS Pofo Regular"),
+    url("../fonts/ALSPofo-Regular.woff2") format("woff2"),
+    url("../fonts/ALSPofo-Regular.woff") format("woff");
+}
