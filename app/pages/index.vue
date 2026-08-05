@@ -15,12 +15,16 @@ useHead({
 
 <template>
   <main>
-    <Hero v-bind="heroData" />
-    <About v-bind="aboutData" />
-    <Events v-bind="eventsData" />
-    <Zones v-bind="zonesData" />
-    <Activities v-bind="activitiesData" />
-    <Map v-bind="mapData" />
-    <Faq :title="faqData.title" :items="faqData.items" :images="faqData.images" />
+    <HeroSection v-bind="heroData" />
+    <AboutSection v-bind="aboutData" />
+    <EventsSection v-bind="eventsData" />
+    <ZonesSection v-bind="zonesData" />
+    <ActivitiesSection v-bind="activitiesData" />
+    <MapSection v-bind="mapData" />
+    <FaqSection
+      :title="faqData.title"
+      :items="faqData.items"
+      :images="faqData.images"
+    />
   </main>
 </template>
