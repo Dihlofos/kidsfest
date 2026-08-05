@@ -2,67 +2,109 @@
 import { ref } from 'vue'
 import { sanitizeText } from '~/utils/sanitize'
 
-const props = defineProps({
-  title: { type: String, required: true },
-  items: { type: Array, required: true },
+defineProps({
+  title: {
+    type: String,
+    default: 'Вопросы и ответы',
+  },
+  items: {
+    type: Array,
+    default: () => [],
+  },
   images: {
     type: Object,
     default: () => ({
-      decorLeft: '/images/faq/decor-left.svg',
-      decorRight: '/images/faq/decor-right.svg',
-      arrowDown: '/images/faq/arrow-down.svg',
-      arrowUp: '/images/faq/arrow-up.svg',
+      decorLeft: '/images/decor/faq-decor-left.png',
+      decorRight: '/images/decor/faq-decor-right.png',
+      arrow: '/images/arrow.svg',
     }),
   },
 })
 
 const openState = ref({})
 
-function toggle(index) {
-  openState.value = { ...openState.value, [index]: !openState.value[index] }
+function isOpen(index) {
+  return Boolean(openState.value[index])
 }
 
-function isOpen(index) {
-  return !!openState.value[index]
+function toggle(index) {
+  openState.value = {
+    ...openState.value,
+    [index]: !openState.value[index],
+  }
 }
 </script>
 
 <template>
   <section id="faq" class="faq">
-    <Image :src="images.decorLeft" alt="" class="faq__decor faq__decor--left" width="1075" height="1090" />
-    <Image :src="images.decorRight" alt="" class="faq__decor faq__decor--right" width="945" height="958" />
-    <Container>
+    <Container class="faq__container">
+      <Image
+        v-if="images.decorLeft"
+        class="faq__decor faq__decor--left"
+        :src="images.decorLeft"
+        alt=""
+        width="1234"
+        height="1622"
+        :img-attrs="{ 'aria-hidden': 'true' }"
+      />
+
+      <Image
+        v-if="images.decorRight"
+        class="faq__decor faq__decor--right"
+        :src="images.decorRight"
+        alt=""
+        width="1234"
+        height="1622"
+        :img-attrs="{ 'aria-hidden': 'true' }"
+      />
+
       <div class="faq__wrapper">
-        <h2 class="faq__title">{{ title }}</h2>
+        <h2 class="faq__title" v-html="sanitizeText(title)" />
+
         <div class="faq__accordion">
           <div
             v-for="(item, index) in items"
-            :key="index"
+            :key="item.question"
             class="faq__item"
-            :class="{ active: isOpen(index) }"
+            :class="{ 'faq__item--active': isOpen(index) }"
+            @click="toggle(index)"
           >
             <button
               class="faq__toggler"
-              :class="{ active: isOpen(index) }"
+              type="button"
               :aria-expanded="isOpen(index)"
-              :aria-controls="`faq-content-${index}`"
-              @click="toggle(index)"
-
+              :aria-controls="`faq-answer-${index}`"
             >
-              <span v-html="sanitizeText(item.question)" />
+              <span
+                class="faq__question"
+                v-html="sanitizeText(item.question)"
+              />
+
               <span class="faq__icon" aria-hidden="true">
-                <img :src="images.arrowDown" alt="" class="faq__down" width="36" height="36">
-                <img :src="images.arrowUp" alt="" class="faq__up" width="36" height="36">
+                <Image
+                  class="faq__arrow"
+                  :src="images.arrow"
+                  alt=""
+                  width="19"
+                  height="11"
+                  :img-attrs="{ 'aria-hidden': 'true' }"
+                />
               </span>
             </button>
 
             <div
-              :id="`faq-content-${index}`"
+              :id="`faq-answer-${index}`"
               class="faq__content"
-              :class="{ active: isOpen(index) }"
+              :class="{ 'faq__content--active': isOpen(index) }"
               role="region"
+              :aria-hidden="!isOpen(index)"
             >
-              <p v-html="sanitizeText(item.answer)"></p>
+              <div class="faq__content-inner">
+                <p
+                  class="faq__answer"
+                  v-html="sanitizeText(item.answer)"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -75,162 +117,233 @@ function isOpen(index) {
 .faq {
   position: relative;
   z-index: 2;
-  padding-block: 8rem 0;
+  overflow: hidden;
+  padding: 6.6rem 0 11.8rem;
+  background: $turquoise;
+  color: $black;
 
   @media (max-width: $tablet) {
-    padding-block: 4rem 0;
+    padding: 6.4rem 0 8rem;
+  }
+
+  @media (max-width: $mobile) {
+    padding: 4.8rem 0 6rem;
+  }
+
+  &__container {
+    position: relative;
   }
 
   &__wrapper {
     position: relative;
+    z-index: 2;
   }
 
   &__title {
-    font-family: $als-trigger-luzhniki;
-    font-size: 6.4rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 0.86;
-    text-transform: uppercase;
+    margin: 0 0 5.2rem;
     color: $white;
+    font-family: $als-trigger-luzhniki;
+    font-style: normal;
     text-align: center;
-    margin: 0 0 6rem;
+    text-transform: uppercase;
+    @include font(6.8rem, 0.95, 700);
 
     @media (max-width: $tablet) {
-      font-size: 4rem;
-      margin-bottom: 3rem;
+      margin-bottom: 3.8rem;
+      font-size: 5.2rem;
+    }
+
+    @media (max-width: $mobile) {
+      margin-bottom: 2.8rem;
+      font-size: 3.8rem;
+    }
+
+    @media (max-width: $mobile-s) {
+      font-size: 3.2rem;
     }
   }
 
   &__accordion {
-    position: relative;
-    z-index: 2;
+    width: 100%;
+    max-width: 99.6rem;
+    margin: 0 auto;
+    padding: 1.6rem 4rem 0.8rem;
+    border-radius: 20px;
+    background: $white;
+
+    @media (max-width: $tablet) {
+      padding-inline: 2.8rem;
+    }
+
+    @media (max-width: $mobile) {
+      padding: 0.8rem 1.6rem 0.6rem;
+      border-radius: 16px;
+    }
   }
 
   &__item {
-    width: 100%;
-    background: rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-    margin: 0 0 2.3rem;
-    overflow: hidden;
-    transition: background 0.3s ease;
+    border-bottom: 0.1rem solid $cyan-secondary;
+    cursor: pointer;
+  }
 
-    @media (max-width: $tablet) {
-      border-radius: 12px;
-      margin-bottom: 1.6rem;
-    }
-
-    &.active {
-      background: linear-gradient(
-        180deg,
-        $fuchsia -300%,
-        rgba(12, 19, 89, 0.9) 100%
-      );
-    }
+  &__item:last-child {
+    border-bottom: 0;
   }
 
   &__toggler {
-    font-family: $als-trigger-luzhniki;
     display: flex;
+    width: 100%;
+    min-height: 7.7rem;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    color: $white;
-    font-size: 3.8rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-transform: uppercase;
-    border: none;
+    gap: 2rem;
+    padding: 0;
+    border: 0;
     background: transparent;
-    cursor: pointer;
+    color: $cyan;
+    font-style: normal;
     text-align: left;
-    padding: 1.7rem 2.5rem 2rem;
-    gap: 1.5rem;
+    cursor: pointer;
+    transition: min-height 300ms ease;
+    @include font(2rem, 1.16, 700);
 
-    @media (max-width: $tablet) {
-      padding: 1.8rem;
-      font-size: 2.2rem;
+    @media (max-width: $mobile) {
+      min-height: 6.4rem;
+      gap: 1.2rem;
+      font-size: 1.6rem;
     }
   }
 
-  &__decor {
-    top: 0;
-    position: absolute;
-    max-width: unset;
-    user-select: none;
-    pointer-events: none;
+  &__item--active &__toggler {
+    min-height: 5.2rem;
 
-    &--left {
-      top: -32.7rem;
-      left: -52.8rem;
+    @media (max-width: $mobile) {
+      min-height: 5.6rem;
     }
+  }
 
-    &--right {
-      top: -38.5rem;
-      right: -56rem;
-    }
+  &__question {
+    padding-block: 1rem;
   }
 
   &__icon {
     display: flex;
-    width: 3.6rem;
-    height: 3.6rem;
+    width: 3.8rem;
+    height: 3.8rem;
+    flex: 0 0 3.8rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: $green;
+    transition: background-color 0.2s ease;
 
-    @media (max-width: $tablet) {
-        width: 2.4rem;
-        height: 2.4rem;
+    @media (max-width: $mobile) {
+      width: 3.2rem;
+      height: 3.2rem;
+      flex-basis: 3.2rem;
     }
-
-    img {
-        width: 3.6rem;
-        height: 3.6rem;
-        align-self: flex-start;
-
-        @media (max-width: $tablet) {
-          width: 2.4rem;
-          height: 2.4rem;
-        }
-    }
-
-    .faq__up {
-        display: none;
-    }
-
   }
 
-  .faq__item.active &__icon {
-    .faq__down {
-        display: none;
-    }
+  &__arrow {
+    display: block;
+    width: 1.9rem;
+    height: 1.1rem;
+    padding-top: 0.3rem;
+    transition: transform 0.2s ease;
 
-    .faq__up {
-        display: block;
+    @media (max-width: $mobile) {
+      width: 1.6rem;
+      height: auto;
     }
+  }
+
+  &__item--active &__arrow {
+    transform: rotate(180deg);
   }
 
   &__content {
-    display: none;
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      grid-template-rows 350ms ease,
+      opacity 250ms ease,
+      visibility 0s linear 350ms;
+  }
 
-    &.active {
-      display: block;
+  &__content--active {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    opacity: 1;
+    transition:
+      grid-template-rows 350ms ease,
+      opacity 250ms ease 80ms,
+      visibility 0s;
+  }
+
+  &__content-inner {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  &__answer {
+    max-width: 80rem;
+    margin: 0;
+    padding: 0 0 1.4rem;
+    font-style: normal;
+    @include font(1.6rem, 1.3, 400);
+
+    @media (max-width: $mobile) {
+      padding-bottom: 1.6rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__decor {
+    position: absolute;
+    z-index: 1;
+    max-width: none;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &__decor--left {
+    top: -29.5rem;
+    left: -30rem;
+    width: 61rem;
+
+    @media (max-width: $tablet) {
+      top: -11rem;
+      left: -43rem;
+      width: 58rem;
     }
 
-    p {
-      color: $white;
-      font-family: $als-pofo;
-      font-size: 2rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 120%;
-      padding: 0 2.5rem 3.1rem;
-      margin: 0;
-      max-width: 108rem;
+    @media (max-width: $mobile) {
+      top: -8rem;
+      left: -32rem;
+      width: 43rem;
+      opacity: 0.7;
+    }
+  }
 
-      @media (max-width: $tablet) {
-        font-size: 1.4rem;
-        padding: 0 1.8rem 1.8rem;
-      }
+  &__decor--right {
+    top: 42.5rem;
+    right: -34rem;
+    width: 64rem;
+
+    @media (max-width: $tablet) {
+      top: auto;
+      right: -37rem;
+      bottom: -13rem;
+      width: 58rem;
+    }
+
+    @media (max-width: $mobile) {
+      right: -31rem;
+      bottom: -12rem;
+      width: 43rem;
+      opacity: 0.7;
     }
   }
 }

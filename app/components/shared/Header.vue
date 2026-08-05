@@ -33,7 +33,7 @@ onUnmounted(() => {
   z-index: 1020;
   background: transparent;
   transition: all 250ms ease;
-  padding: 2.6rem 0;
+  padding: 2rem 0;
   background-color: $cyan;
 
   @media (max-width: $tablet) {

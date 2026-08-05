@@ -9,19 +9,11 @@
 html {
   @include font(10px, 10px, 400);
 
-  @media (max-width: $desktop) {
-    @include font(10px, 10px, 400);
-  }
-
   @media (max-width: $laptop) {
     @include font(8px, 8px, 400);
   }
 
   @media (max-width: $tablet) {
-    @include font(10px, 10px, 400);
-  }
-
-  @media (max-width: $mobile) {
     @include font(10px, 10px, 400);
   }
 }
@@ -49,8 +41,11 @@ body,
   box-sizing: border-box;
 }
 
-button {
-  font-family: $als-pofo;
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
 main {

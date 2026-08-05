@@ -2,14 +2,24 @@
 // Colors
 // ══════════════════════════════════════════════════════════
 
-$black:       #000000;
-$white:       #FFFFFF;
-$orange:      #FF6E2D;
-$cyan:        #6EBFDD;
-$acid-green:  #C2DB07;
-$fuchsia:     #BE3273;
-$cream-light: #FEFCF1;
-$cream:       #FFF9F2;
+$black:#000000;
+$white:#FFFFFF;
+$green:#A0C74B;
+$green-secondary: #00B44B;
+$cyan-secondary: #6EBFDD;
+$cyan: #1E94B9;
+$turquoise: #31AFB3;
+$main-gradient: var(
+  --main-gradient,
+  linear-gradient(
+    90deg,
+    #C7E3E7 0%,
+    #5BB9C2 39%,
+    #31AFB3 49%,
+    #9CC552 91%,
+    #A0C74B 100%
+  )
+);
 
 // ══════════════════════════════════════════════════════════
 // Font families
@@ -17,3 +27,4 @@ $cream:       #FFF9F2;
 
 $als-trigger-luzhniki:  "ALS Trigger Luzhniki", "Arial", sans-serif;
 $als-pofo:              "ALS Pofo", "Arial", sans-serif;
+$montserrat: "Montserrat", "Arial", sans-serif;

@@ -1,0 +1,101 @@
+{
+  "type": "activities",
+  "title": "Игровые активности",
+  "cards": [
+    {
+      "id": "nerf",
+      "variant": "cyan",
+      "title": "Нерф-баттл",
+      "description": "Динамичная игра с&nbsp;мячом, где важны скорость, точность и&nbsp;командная работа.",
+      "time": "09:30–19:30",
+      "button": {
+        "text": "Регистрация",
+        "link": "#registration"
+      }
+    },
+    {
+      "id": "subsocker",
+      "variant": "white",
+      "title": "Сабсоккер",
+      "description": "Активная площадка для тренировок меткости, ловкости и&nbsp;координации.",
+      "time": "09:30–19:30",
+      "button": {
+        "text": "Регистрация",
+        "link": "#registration"
+      }
+    },
+    {
+      "id": "foam-party",
+      "variant": "cyan",
+      "title": "Пенная вечеринка",
+      "description": "Игра на&nbsp;точность, где каждый удар помогает пройти трассу с&nbsp;препятствиями.",
+      "time": "09:30–19:30",
+      "button": {
+        "text": "Регистрация",
+        "link": "#registration"
+      }
+    },
+    {
+      "id": "magnetic-fishing",
+      "variant": "white",
+      "title": "Магнитная рыбалка",
+      "description": "Лёгкий формат тенниса для первых игровых шагов и&nbsp;точных ударов.",
+      "time": "09:30–19:30",
+      "button": {
+        "text": "Регистрация",
+        "link": "#registration"
+      }
+    },
+    {
+      "id": "ring-toss",
+      "variant": "cyan",
+      "title": "Кольцеброс",
+      "description": "Весёлая командная игра с&nbsp;большим мячом и&nbsp;яркой динамикой.",
+      "time": "09:30–19:30",
+      "button": {
+        "text": "Регистрация",
+        "link": "#registration"
+      }
+    },
+    {
+      "id": "tic-tac-toe",
+      "variant": "white",
+      "title": "Крестики-нолики",
+      "description": "Трасса для маленьких гонщиков, где тренируются баланс и&nbsp;уверенность в&nbsp;движении.",
+      "time": "09:30–19:30",
+      "button": {
+        "text": "Регистрация",
+        "link": "#registration"
+      }
+    },
+    {
+      "id": "creative-workshop",
+      "variant": "cyan",
+      "title": "Творческая мастерская",
+      "description": "Энергичная активность с&nbsp;прыжками и&nbsp;ритмичным движением.",
+      "time": "09:30–19:30",
+      "button": {
+        "text": "Регистрация",
+        "link": "#registration"
+      }
+    },
+    {
+      "id": "face-painting",
+      "variant": "white",
+      "title": "Аквагрим",
+      "description": "Лёгкий формат тенниса для первых игровых шагов и&nbsp;точных ударов.",
+      "time": "09:30–19:30",
+      "button": {
+        "text": "Регистрация",
+        "link": "#registration"
+      }
+    }
+  ],
+  "images": {
+    "background": "/images/decor/activities-background.svg",
+    "decorLeft": "/images/decor/acrivities-decor-left.png",
+    "decorRight": "/images/decor/activities-decor-right.png",
+    "sliderArrowLeft": "/images/faq/arrow-up.svg",
+    "sliderArrowRight": "/images/faq/arrow-down.svg"
+  }
+}

@@ -1,8 +1,53 @@
 {
   "type": "hero",
-  "title": "Создаём современные веб-сайты",
-  "subtitle": "Быстро, надёжно, красиво. Используем Nuxt 3 и SCSS.",
-  "button": { "text": "Узнать больше", "link": "#features" },
-  "secondaryButton": { "text": "Связаться", "link": "#contact" },
-  "backgroundImage": "components/HeroSection/bg-hero.jpg"
+  "title": [
+    "Детский",
+    "фестиваль",
+    "спорта"
+  ],
+  "partners": [
+    {
+      "name": "Проект Мэра Москвы",
+      "link": "https://www.mos.ru/",
+      "image": "/images/icons/project.svg",
+      "width": 77,
+      "height": 38
+    },
+    {
+      "name": "Лето в Москве",
+      "link": "https://leto.mos.ru/",
+      "image": "/images/icons/leto.svg",
+      "width": 90,
+      "height": 38
+    },
+    {
+      "name": "Департамент спорта города Москвы",
+      "link": "https://www.mos.ru/moskomsport/",
+      "image": "/images/icons/department.svg",
+      "width": 116,
+      "height": 38
+    },
+    {
+      "name": "Московский спорт",
+      "link": "https://sport.mos.ru/",
+      "image": "/images/icons/sport.svg",
+      "width": 133,
+      "height": 38
+    }
+  ],
+  "date": "29 августа",
+  "location": [
+    "Южный спортивный центр,",
+    "ОК «Лужники»"
+  ],
+  "badge": "Бесплатно",
+  "age": "0+",
+  "button": {
+    "text": "Зарегистрироваться",
+    "link": "#registration"
+  },
+  "images": {
+    "decorLeft": "/images/decor/hero-decor-left.png",
+    "decorRight": "/images/decor/hero-decor-right.png"
+  }
 }

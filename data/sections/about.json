@@ -1,0 +1,51 @@
+{
+  "type": "about",
+  "title": [
+    "День, наполненный движением,",
+    "эмоциями и&nbsp;новыми открытиями."
+  ],
+  "description": "На&nbsp;Детском фестивале спорта дети смогут познакомиться с&nbsp;разными видами спорта, принять участие в&nbsp;игровых активностях, попробовать себя в&nbsp;новых дисциплинах, встретиться с&nbsp;известными спортсменами и&nbsp;блогерами, а&nbsp;также посетить концерт с&nbsp;участием любимых звезд.",
+  "cards": [
+    {
+      "title": [
+        "Площадки на&nbsp;любой вкус и&nbsp;возраст"
+      ],
+      "description": "От&nbsp;мини‑тенниса до&nbsp;нерф-баттла.",
+      "variant": "turquoise",
+      "size": "default"
+    },
+    {
+      "title": [
+        "Игры и&nbsp;развлечения"
+      ],
+      "description": "Творческие зоны, игровые активности и&nbsp;развлечения для всей семьи.",
+      "variant": "green",
+      "size": "default"
+    },
+    {
+      "title": [
+        "Спортивные активности"
+      ],
+      "description": "Попробуйте разные виды спорта на&nbsp;площадках фестиваля.",
+      "variant": "green",
+      "size": "wide"
+    },
+    {
+      "title": [
+        "Известные спортсмены и&nbsp;звезды"
+      ],
+      "description": "Мастер-классы, фан-встречи и&nbsp;большой концерт.",
+      "variant": "turquoise",
+      "size": "default"
+    }
+  ],
+  "button": {
+    "text": "Зарегистрироваться",
+    "link": "#registration"
+  },
+  "images": {
+    "background": "/images/decor/about-background.svg",
+    "arcBlue": "/images/decor/arc-hero-blue.png",
+    "arcGreen": "/images/decor/arc-hero-green.png"
+  }
+}

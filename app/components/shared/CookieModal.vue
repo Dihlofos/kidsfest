@@ -70,8 +70,7 @@ function accept() {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: $fuchsia;
-    font-family: $als-pofo;
+    background: $green;
     font-size: 1.6rem;
     font-weight: 600;
     color: $white;
@@ -91,7 +90,6 @@ function accept() {
 
     p {
       color: $black;
-      font-family: $als-pofo;
       font-size: 1rem;
       font-style: normal;
       font-weight: 400;

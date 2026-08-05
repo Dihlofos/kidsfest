@@ -1,0 +1,42 @@
+{
+  "type": "events",
+  "title": "Главные события",
+  "items": [
+    {
+      "id": "first",
+      "variant": "green",
+      "title": [
+        "Фан-встреча",
+        "с Владом Глентом"
+      ],
+      "description": "Встреча с популярным блогером",
+      "photo": "/images/events/guest-1.png",
+      "photoAlt": "Влад Глент",
+      "frame": "/images/decor/guest-frame-1.png",
+      "frameWidth": 1224,
+      "frameHeight": 1226,
+      "framePiece": "/images/decor/frame-piece-1.png",
+      "framePieceWidth": 374,
+      "framePieceHeight": 362
+    },
+    {
+      "id": "second",
+      "variant": "turquoise",
+      "title": [
+        "Концерт Клавы Коки"
+      ],
+      "description": "Большой вечерний концерт хедлайнера фестиваля",
+      "photo": "/images/events/guest-2.png",
+      "photoAlt": "Клава Кока",
+      "frame": "/images/decor/guest-frame-2.png",
+      "frameWidth": 1164,
+      "frameHeight": 1236,
+      "framePiece": "/images/decor/frame-piece-2.png",
+      "framePieceWidth": 330,
+      "framePieceHeight": 536
+    }
+  ],
+  "images": {
+    "decor": "/images/decor/events-decor.png"
+  }
+}

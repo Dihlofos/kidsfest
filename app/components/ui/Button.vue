@@ -31,92 +31,100 @@ const props = defineProps({
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  border-radius: 8px;
-  transition: all 150ms ease;
+  flex-shrink: 0;
+  border: 0;
+  color: $white;
+  font-style: normal;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
+
+  @media (hover: hover) {
+    &:not(:disabled):hover {
+      background-color: $white;
+      color: $black;
+    }
+  }
+
+  &:focus-visible {
+    outline: 0.2rem solid $cyan;
+    outline-offset: 0.3rem;
+  }
 
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
+}
 
-  &.white {
-    background-color: $white;
-    border-color: $white;
-    color: $fuchsia;
+.button--sm {
+  padding-inline: 1.6rem;
+}
 
-    &:hover {
-      color: $white;
-    }
-  }
+.button--md {
+  padding-inline: 2.4rem;
+}
 
-  // --- Sizes ---
-  &--sm {
-    padding: 4px 16px;
-    font-size: 1.4rem;
-  }
-  &--md {
-    padding: 8px 24px;
-    font-size: 1.6rem;
-  }
-  &--lg {
-    padding: 16px 32px;
-    font-size: 1.8rem;
-  }
+.button--lg {
+  padding-inline: 4rem;
+}
 
-  // --- Variants ---
-  &--primary {
-    display: inline-flex;
+.button--primary,
+.button--green {
+  min-width: 28.2rem;
+  height: 3.9rem;
+  padding: 0 4.4rem;
+  border-radius: 30px;
+  background-color: $green;
+  font-family: $als-trigger-luzhniki;
+  @include font(1.6rem, 1, 700);
+}
+
+.button--secondary,
+.button--black {
+  min-width: 32.1rem;
+  height: 6.4rem;
+  padding: 0 4rem;
+  border-radius: 40px;
+  background-color: $black;
+  font-family: $als-trigger-luzhniki;
+  @include font(2rem, 1, 700);
+}
+
+.button--registration,
+.button--registration-cyan {
+  height: 3.5rem;
+  padding-inline: 2rem;
+  border-radius: 30px;
+  @include font(2rem, 0.9, 700);
+}
+
+.button--registration {
+  background-color: $white;
+  color: $cyan;
+}
+
+.button--registration-cyan {
+  background-color: $cyan-secondary;
+  color: $white;
+}
+
+.button--ghost {
+  padding: 0.8rem 2.4rem;
+  border-radius: 8px;
+  background-color: transparent;
+  color: $black;
+  @include font(1.6rem, 1, 700);
+}
+
+@media (hover: hover) {
+  .button--registration:not(:disabled):hover,
+  .button--registration-cyan:not(:disabled):hover {
+    background-color: $black;
     color: $white;
-    font-family: $als-pofo;
-    font-size: 2.8rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    border-radius: 20px;
-    border: 2px solid $orange;
-    background: $orange;
-    text-decoration: none;
-    padding: 2.3rem;
-    cursor: pointer;
-    flex-shrink: 0;
-
-    &:hover {
-      background-color: $black;
-      border-color: $black;
-    }
-
-    &--active {
-      border: 2px solid $orange;
-      background: $orange;
-    }
-
-    @media (max-width: $tablet) {
-      border-width: 1px;
-      border-radius: 6px;
-      font-size: 2.2rem;
-      padding: 0.5rem 0.8rem;
-    }
-  }
-
-  &--secondary {
-    background-color: transparent;
-    color: #0055ff;
-    border: 2px solid #0055ff;
-
-    &:hover:not(:disabled) {
-      background-color: #0055ff;
-      color: #fff;
-    }
-  }
-
-  &--ghost {
-    background-color: transparent;
-    color: #1e293b;
-
-    &:hover:not(:disabled) {
-      background-color: #f8fafc;
-    }
   }
 }
 </style>
