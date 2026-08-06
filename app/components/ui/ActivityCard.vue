@@ -24,16 +24,27 @@ defineProps({
       <p class="activity-card__time" v-html="sanitizeText(item.time)" />
     </div>
 
-    <Button
-      v-if="item.button?.text"
-      class="activity-card__button"
-      :to="item.button.link"
-      :variant="item.variant === 'white'
-        ? 'registration-cyan'
-        : 'registration'"
+    <div
+      v-if="item.button?.text || item.age"
+      class="activity-card__footer"
     >
-      <span v-html="sanitizeText(item.button.text)" />
-    </Button>
+      <Button
+        v-if="item.button?.text"
+        class="activity-card__button"
+        :to="item.button.link"
+        :variant="item.variant === 'white'
+          ? 'registration-cyan'
+          : 'registration'"
+      >
+        <span v-html="sanitizeText(item.button.text)" />
+      </Button>
+
+      <p
+        v-if="item.age"
+        class="activity-card__age"
+        v-html="sanitizeText(item.age)"
+      />
+    </div>
   </article>
 </template>
 
@@ -149,11 +160,35 @@ defineProps({
     }
   }
 
-  &__button {
+  &__footer {
     position: relative;
     z-index: 2;
-    max-width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
     margin-top: auto;
+  }
+
+  &__button {
+    max-width: fit-content;
+  }
+
+  &__age {
+    flex: 0 0 auto;
+    margin: 0;
+    text-align: right;
+    font-family: $als-trigger-luzhniki;
+    font-style: normal;
+    @include font(2rem, 1.1, 900);
+  }
+
+  &--cyan .activity-card__age {
+    color: $white;
+  }
+
+  &--white .activity-card__age {
+    color: $cyan-secondary;
   }
 
   &--tablet-cyan .activity-card__button {
@@ -167,6 +202,18 @@ defineProps({
     @media (min-width: calc($mobile + 1px)) and (max-width: $tablet) {
       background-color: $cyan-secondary;
       color: $white;
+    }
+  }
+
+  &--tablet-cyan .activity-card__age {
+    @media (min-width: calc($mobile + 1px)) and (max-width: $tablet) {
+      color: $white;
+    }
+  }
+
+  &--tablet-white .activity-card__age {
+    @media (min-width: calc($mobile + 1px)) and (max-width: $tablet) {
+      color: $cyan-secondary;
     }
   }
 }

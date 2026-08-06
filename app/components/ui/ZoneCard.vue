@@ -16,6 +16,12 @@ defineProps({
       tabletVariant && `zone-card--tablet-${tabletVariant}`,
     ]"
   >
+    <p
+      v-if="item.age"
+      class="zone-card__age"
+      v-html="sanitizeText(item.age)"
+    />
+
     <div class="zone-card__content">
       <h3 class="zone-card__title" v-html="sanitizeText(item.title)" />
       <p
@@ -87,6 +93,19 @@ defineProps({
   &__content {
     position: relative;
     z-index: 2;
+  }
+
+  &__age {
+    position: absolute;
+    top: 1.6rem;
+    right: 2rem;
+    z-index: 3;
+    margin: 0;
+    color: $white;
+    text-align: right;
+    font-family: $als-trigger-luzhniki;
+    font-style: normal;
+    @include font(1.6rem, 1.1, 900);
   }
 
   &__title {

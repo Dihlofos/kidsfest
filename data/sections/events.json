@@ -6,34 +6,169 @@
       "id": "first",
       "variant": "green",
       "title": [
-        "Фан-встреча",
-        "с Владом Глентом"
+        "Влад Глент"
       ],
-      "description": "Встреча с популярным блогером",
+      "schedule": [
+        {
+          "label": "Автограф-сессия",
+          "time": "16:00–17:00"
+        },
+        {
+          "label": "Фан-встреча",
+          "time": "17:45–17:00"
+        }
+      ],
+      "location": "Главная сцена",
       "photo": "/images/events/guest-1.png",
       "photoAlt": "Влад Глент",
+      "photoWidth": 850,
+      "photoHeight": 850,
       "frame": "/images/decor/guest-frame-1.png",
       "frameWidth": 1224,
       "frameHeight": 1226,
-      "framePiece": "/images/decor/frame-piece-1.png",
-      "framePieceWidth": 374,
-      "framePieceHeight": 362
+      "framePieces": [
+        {
+          "position": "main",
+          "src": "/images/decor/frame-piece-1.png",
+          "width": 374,
+          "height": 362
+        }
+      ],
+      "infoDecor": "/images/events/guest-1-decor.svg",
+      "infoDecorWidth": 156,
+      "infoDecorHeight": 143
     },
     {
       "id": "second",
-      "variant": "turquoise",
+      "variant": "green",
       "title": [
-        "Концерт Клавы Коки"
+        "Клава Кока"
       ],
-      "description": "Большой вечерний концерт хедлайнера фестиваля",
+      "schedule": [
+        {
+          "label": "Концерт",
+          "time": "19:00–20:00"
+        }
+      ],
+      "location": "Главная сцена",
       "photo": "/images/events/guest-2.png",
       "photoAlt": "Клава Кока",
+      "photoWidth": 850,
+      "photoHeight": 850,
       "frame": "/images/decor/guest-frame-2.png",
       "frameWidth": 1164,
       "frameHeight": 1236,
-      "framePiece": "/images/decor/frame-piece-2.png",
-      "framePieceWidth": 330,
-      "framePieceHeight": 536
+      "framePieces": [
+        {
+          "position": "main",
+          "src": "/images/decor/frame-piece-2.png",
+          "width": 330,
+          "height": 536
+        }
+      ],
+      "infoDecor": "/images/events/guest-2-decor.svg",
+      "infoDecorWidth": 154,
+      "infoDecorHeight": 88
+    },
+    {
+      "id": "third",
+      "variant": "green",
+      "title": [
+        "Александр Тарасов"
+      ],
+      "subtitle": "T-killah",
+      "schedule": [
+        {
+          "label": "Мини-футбол",
+          "time": "18:00"
+        }
+      ],
+      "photo": "/images/events/guest-3.png",
+      "photoAlt": "Александр Тарасов",
+      "photoWidth": 700,
+      "photoHeight": 700,
+      "frame": "/images/decor/guest-frame-3.png",
+      "frameWidth": 986,
+      "frameHeight": 980,
+      "framePieces": [
+        {
+          "position": "top",
+          "src": "/images/decor/frame-piece-3(top).png",
+          "width": 408,
+          "height": 254
+        },
+        {
+          "position": "bottom",
+          "src": "/images/decor/frame-piece-3(bottom).png",
+          "width": 406,
+          "height": 332
+        }
+      ],
+      "infoDecor": "/images/events/guest-3-decor.svg",
+      "infoDecorWidth": 166,
+      "infoDecorHeight": 88
+    },
+    {
+      "id": "fourth",
+      "variant": "green",
+      "title": [
+        "Аделия Петросян"
+      ],
+      "schedule": [
+        {
+          "label": "Фигурное катание",
+          "time": "15:30"
+        }
+      ],
+      "photo": "/images/events/guest-4.png",
+      "photoAlt": "Аделия Петросян",
+      "photoWidth": 700,
+      "photoHeight": 700,
+      "frame": "/images/decor/guest-frame-4.png",
+      "frameWidth": 1114,
+      "frameHeight": 1173,
+      "framePieces": [
+        {
+          "position": "main",
+          "src": "/images/decor/frame-piece-4.png",
+          "width": 171,
+          "height": 215
+        }
+      ],
+      "infoDecor": "/images/events/guest-4-decor.svg",
+      "infoDecorWidth": 164,
+      "infoDecorHeight": 63
+    },
+    {
+      "id": "fifth",
+      "variant": "green",
+      "title": [
+        "Вашингтон Саллес"
+      ],
+      "schedule": [
+        {
+          "label": "Баскетбол",
+          "time": "13:30"
+        }
+      ],
+      "photo": "/images/events/guest-5.png",
+      "photoAlt": "Вашингтон Саллес",
+      "photoWidth": 700,
+      "photoHeight": 700,
+      "frame": "/images/decor/guest-frame-5.png",
+      "frameWidth": 972,
+      "frameHeight": 1056,
+      "framePieces": [
+        {
+          "position": "main",
+          "src": "/images/decor/frame-piece-5.png",
+          "width": 294,
+          "height": 414
+        }
+      ],
+      "infoDecor": "/images/events/guest-5-decor.svg",
+      "infoDecorWidth": 180,
+      "infoDecorHeight": 73
     }
   ],
   "images": {
