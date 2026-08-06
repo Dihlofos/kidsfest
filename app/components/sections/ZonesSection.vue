@@ -43,18 +43,14 @@ function getTabletVariant(index) {
         />
       </div>
 
-      <Slider
-        v-if="cards.length"
-        class="zones__slider"
-        :items="cards"
-        :arrow-left="images.sliderArrowLeft"
-        :arrow-right="images.sliderArrowRight"
-        :desktop-breakpoint="744"
-      >
-        <template #slide="{ item }">
-          <ZoneCard :item="item" />
-        </template>
-      </Slider>
+      <div v-if="cards.length" class="zones__slider">
+        <ZoneCard
+          v-for="card in cards"
+          :key="card.id"
+          class="zones__slide"
+          :item="card"
+        />
+      </div>
 
       <Image
         v-if="images.decor && showDesktopDecor"
@@ -149,9 +145,25 @@ function getTabletVariant(index) {
     display: none;
 
     @media (max-width: $mobile) {
-      display: block;
-      margin-top: 4rem;
-      --slider-slide-width: 28rem;
+      display: flex;
+      gap: 1.2rem;
+      margin: 4rem calc(-1 * var(--container-padding, 2rem)) 0;
+      padding: 0 var(--container-padding, 2rem);
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  &__slide {
+    @media (max-width: $mobile) {
+      flex: 0 0 28rem;
+      scroll-snap-align: start;
     }
   }
 

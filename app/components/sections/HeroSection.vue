@@ -101,6 +101,15 @@ const props = defineProps({
   background: $main-gradient;
   color: $white;
 
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: rgba($black, 0.1);
+    pointer-events: none;
+  }
+
   &::after {
     content: '';
     position: absolute;
